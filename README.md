@@ -9,7 +9,7 @@
 ```bash
 mkdir ros_ws && cd ros_ws
 mkdir src && cd src
-git clone 
+git clone https://github.com/heurry/ros1-.git
 cd ..
 catkin_make
 roslaunch camera_split camera_split.launch

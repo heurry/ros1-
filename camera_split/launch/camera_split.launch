@@ -1,0 +1,15 @@
+<launch>
+    <arg name="input_image_topic" default="/usb_cam/image_raw" />
+
+    <node pkg="camera_split" type="camera_split_node" name="camera_split_node" output="screen">
+        <param name="input_image_topic" value="$(arg input_image_topic)" />
+    </node>
+    <node pkg="image_view" type="image_view" name="image_view_left" respawn="false" output="screen">
+        <remap from="image" to="/left_cam/image_raw"/>
+        <param name="autosize" value="true" />
+    </node>
+    <node pkg="image_view" type="image_view" name="image_view_right" respawn="false" output="screen">
+        <remap from="image" to="/right_cam/image_raw"/>
+        <param name="autosize" value="true" />
+    </node>
+</launch>
